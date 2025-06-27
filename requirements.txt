@@ -1,0 +1,17 @@
+Django==5.0.1
+dj-database-url==3.0.0
+django-ckeditor-5==0.2.18
+gunicorn==23.0.0
+pillow==10.3.0
+psycopg2-binary==2.9.10  # Jika pakai PostgreSQL
+PyMySQL==1.1.1           # Jika pakai MySQL
+python-decouple==3.8
+sqlparse==0.5.3
+tzdata==2025.2
+contourpy==1.0.1
+cycler==0.10
+fonttools==4.22.0
+kiwisolver==1.3.1
+numpy>=1.23
+python-dateutil==2.9.0
+
