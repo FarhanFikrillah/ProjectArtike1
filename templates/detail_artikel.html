@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">FARHANTAM</a>
+    </nav>
+
+    <div class="container py-4">
+        <h1 class="mb-3">{{ artikel.judul }}</h1>
+        <p class="text-muted">Kategori: {{ artikel.kategori }}</p>
+
+        {% if artikel.gambar %}
+            <img src="{{ artikel.gambar.url }}" class="img-fluid mb-4" alt="Gambar Artikel">
+        {% endif %}
+
+        <p>{{ artikel.konten }}</p>
+
+        <a href="/" class="btn btn-secondary mt-3">← Kembali ke Beranda</a>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; {{ year }} FARHANTAM. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{% static 'landingpage/assets/img/apple-icon.png' %}">
+  <link rel="icon" type="image/png" href="{% static 'landingpage/assets/img/favicon.png' %}">
+  <title>
+    FARHANTAM
+  </title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="{% static 'landingpage/assets/css/nucleo-icons.css' %}" rel="stylesheet" />
+  <link href="{% static 'landingpage/assets/css/nucleo-svg.css' %}" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="{% static 'landingpage/assets/css/material-kit-pro.css' %}?v=3.0.0" rel="stylesheet" />
+</head>
+
+<body class="blog-posts bg-gray-200">
+  <!-- Navbar Transparent -->
+ {% include 'landingpage/navbar.html' %}
+  <header>
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="page-header min-vh-75" style="background-image: url('static/landingpage/assets/img/newspaper.jpg');" loading="lazy">
+            <span class="mask bg-gradient-dark"></span>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 my-auto">
+                  <h4 class="text-white mb-0 fadeIn1 fadeInBottom">Discover Stories</h4>
+                  <h1 class="text-white fadeIn2 fadeInBottom">Tempat Berbagi Cerita </h1>
+                  <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">Temukan Berita apapun yang sedah hangat saat ini,atau berbagi pengalaman yang menarik keseluruh dunia.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="page-header min-vh-75" style="background-image: url({% static 'landingpage/assets/img/WLOP wide 2 girl.jpg' %});" loading="lazy">
+            <span class="mask bg-gradient-dark"></span>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 my-auto">
+                  <h4 class="text-white mb-0 fadeIn1 fadeInBottom">Our Team</h4>
+                  <h1 class="text-white fadeIn2 fadeInBottom">Bekerja Dalam Sebuah Tim</h1>
+                  <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">Bekerja dalam tim membuat setiap tugas terasa lebih ringan karena adanya kerja sama dan saling mendukung antar anggota.
+                     Dengan komunikasi yang baik dan rasa tanggung jawab, tim akan mampu mencapai tujuan bersama dengan lebih efektif, yaa tuan</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="page-header min-vh-75" style="background-image: url({% static 'landingpage/assets/img/mcpe.jpg' %});" loading="lazy">
+            <span class="mask bg-gradient-dark"></span>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-6 my-auto">
+                  <h4 class="text-white mb-0 fadeIn1 fadeInBottom">Work Anywhere</h4>
+                  <h1 class="text-white fadeIn2 fadeInBottom">Buat Artikel mu dimanapun kapanpun!</h1>
+                  <p class="lead text-white opacity-8 fadeIn3 fadeInBottom">Buat artikelmu kapanpun dan dimanapun, karena inspirasi bisa datang tanpa diduga.
+                    Dengan semangat dan kemauan, menulis jadi lebih mudah dan menyenangkan~! (≧◡≦)♡.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="min-vh-75 position-absolute w-100 top-0">
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon position-absolute bottom-50" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon position-absolute bottom-50" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <!-- -------- END HEADER 11 w/ carousel ------- -->
+  {% block content %}
+
+  {% endblock content %}
+
+  <!--   Core JS Files   -->
+  <script src="{% static 'landingpage/assets/js/core/popper.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'landingpage/assets/js/core/bootstrap.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'landingpage/assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
+  <!--  Plugin for TypedJS, full documentation here: https://github.com/mattboldt/typed.js/ -->
+  <script src="{% static 'landingpage/assets/js/plugins/typedjs.js' %}"></script>
+  <script src="{% static 'landingpage/assets/js/plugins/choices.min.js' %}"></script>
+  <script src="{% static 'landingpage/assets/js/plugins/flatpickr.min.js' %}"></script>
+  <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+  <script src="{% static 'landingpage/assets/js/plugins/parallax.min.js' %}"></script>
+  <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+  <script src="{% static 'landingpage/assets/js/plugins/nouislider.min.js' %}" type="text/javascript"></script>
+  <!--  Plugin for the blob animation -->
+  <script src="{% static 'landingpage/assets/js/plugins/anime.min.js' %}" type="text/javascript"></script>
+  <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+  <script src="{% static 'landingpage/assets/js/material-kit-pro.min.js' %}?v=3.0.0" type="text/javascript"></script>
+  <script>
+    if (document.getElementById('language-select')) {
+      var element = document.getElementById('language-select');
+      const example = new Choices(element, {
+        searchEnabled: false
+      });
+
+    }
+    if (document.getElementById('currency-select')) {
+      var element = document.getElementById('currency-select');
+      const example = new Choices(element, {
+        searchEnabled: false
+      });
+    }
+  </script>
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+
+    toggleButton.addEventListener('click', () => {
+      const current = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      const newTheme = current === 'dark' ? 'light' : 'dark';
+      setTheme(newTheme);
+    });
+
+    // Apply saved theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+  </script>
+
+</body>
+
+</html>

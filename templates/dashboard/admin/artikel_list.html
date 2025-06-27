@@ -1,0 +1,60 @@
+{% extends "dashboard/base.html" %}
+{% load static %}
+{% block css %}
+
+{% endblock css %}
+
+{% block content %}
+<div class="col-12">
+    <div class="card">
+      <!-- Card header -->
+      <div class="card-header">
+        <h5 class="mb-0">Daftar Artikel <a class="btn btn-outline-info btn-sm" href="{% url 'admin_artikel_tambah' %}"> + Tambah</a></h5>
+        <p class="text-sm mb-0">
+          A lightweight, extendable, dependency-free javascript HTML table plugin.
+        </p>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-flush" id="datatable-search">
+          <thead class="thead-light">
+            <tr>
+              <th>Nomor</th>
+              <th>Judul</th>
+              <th>kategori</th>
+              <th>Status</th>
+              <th>created_at</th>
+              <th>created_by</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for artikel in artikel  %}
+                <tr>
+                <td class="text-sm font-weight-normal">{{ forloop.counter }}</td>
+                <td class="text-sm font-weight-normal">{{ artikel.judul }}</td>
+                <td class="text-sm font-weight-normal">{{ artikel.kategori }}</td>
+                <td class="text-sm font-weight-normal">{{ artikel.status }}</td>
+                <td class="text-sm font-weight-normal">{{ artikel.created_at }}</td>
+                <td class="text-sm font-weight-normal">{{ artikel.created_by }}</td>
+                <td class="text-sm font-weight-normal text-center">
+                  <a class="btn btn-warning btn-sm" href="{% url 'admin_artikel_update' artikel.id %}">edit</a>
+                  <a class="btn btn-danger btn-sm" onclick="return confirm('Menghapus Artikel')" href="{% url 'admin_artikel_delete' artikel.id %}">delete</a>
+                </td>
+                </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+{% block js %}
+    <script src="{% static 'dashboard/assets/js/plugins/datatables.js' %}"></script>
+    <script>
+        const dataTableSearch = new simpleDatatables.DataTable("#datatable-search", {
+            searchable: true,
+            fixedHeight: true
+            })
+        </script>
+{% endblock js %}

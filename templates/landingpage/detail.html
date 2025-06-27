@@ -1,0 +1,118 @@
+{% extends "landingpage/base.html" %}
+{% load static %}
+{% block content %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+  .badge-kategori {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(0, 123, 255, 0.85);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    z-index: 10;
+  }
+
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+<div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+
+  <!-- Artikel Utama -->
+  <section class="py-5 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 ms-auto me-auto position-relative">
+
+          <!-- 🔖 Kategori tetap di atas gambar -->
+          <span class="badge-kategori">{{ artikel.kategori }}</span>
+
+          <img src="{{ artikel.gambar.url }}" class="img-fluid rounded shadow-sm mb-4" alt="Gambar Artikel">
+
+          <h3 class="title mb-4">{{ artikel.judul }}</h3>
+
+          <!-- Estimasi waktu baca -->
+          <p class="text-muted">
+            <i class="fas fa-clock me-1"></i> 
+            Sekitar {{ artikel.konten|wordcount|divisibleby:200|yesno:"1,2,3,4,5" }} menit baca
+          </p>
+
+          <p class="text-dark" style="text-align: justify;">{{ artikel.konten|safe }}</p>
+
+          <p class="text-secondary mb-1">
+            <i class="fas fa-calendar-alt me-1"></i> {{ artikel.created_at }}
+          </p>
+          <p class="text-secondary">
+            <i class="fas fa-user me-1"></i> {{ artikel.created_by.get_full_name|default:artikel.created_by.username }}
+          </p>
+
+          <!-- 🔙 Tombol -->
+          <div class="mt-4 d-flex flex-wrap gap-2">
+            <a href="/" class="btn btn-outline-primary">
+              <i class="fas fa-arrow-left me-2"></i> Kembali ke Beranda
+            </a>
+
+            <!-- 📤 Bagikan ke WhatsApp -->
+            <a href="https://wa.me/?text={{ request.build_absolute_uri }}" target="_blank" class="btn btn-success">
+              <i class="fab fa-whatsapp me-1"></i> Bagikan
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artikel Lainnya -->
+  <section class="py-7">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-9 text-center">
+          <h3 class="mb-1">Artikel lainnya</h3>
+          <p class="mb-6 px-md-6">Bosan dengan artikel yang di atas? coba cek artikel di bawah ini!!!</p>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+          {% for artikel in artikel_lainnya %}
+            <div class="card" style="width: 300px; flex: 0 0 auto;">
+              <div class="card-header p-0 mx-3 mt-n4 position-relative z-index-1">
+                <a href="{% url 'detail_artikel' artikel.id %}" class="d-block blur-shadow-image">
+                  <img src="{{ artikel.gambar.url }}" class="img-fluid border-radius-md" alt="Gambar Artikel" loading="lazy">
+                </a>
+              </div>
+
+              <div class="card-body">
+                <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold">{{ artikel.kategori }}</span>
+                <a href="{% url 'detail_artikel' artikel.id %}" class="card-title mt-3 h5 d-block text-darker">
+                  {{ artikel.judul }}
+                </a>
+                <p class="card-description mb-4" style="text-align: justify">
+                  {{ artikel.konten|truncatechars:200 }}
+                </p>
+                <div class="author align-items-center d-flex">
+                  <img src="{% static 'landingpage/assets/img/team-2.jpg' %}" alt="Author" class="avatar shadow" loading="lazy">
+                  <div class="name ps-2">
+                    <span>{{ artikel.created_by.get_full_name|default:artikel.created_by.username }}</span>
+                    <div class="stats">
+                      <small>{{ artikel.created_at }}</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock content %}
